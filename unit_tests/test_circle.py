@@ -3,7 +3,7 @@ from circle import area, perimeter
 
 class TestCircle(unittest.TestCase):
 
-    def test_areaa(self):
+    def test_area(self):
         # Arrange
         raduis = 5
         expected_area = 78.53981633974483
@@ -14,7 +14,7 @@ class TestCircle(unittest.TestCase):
         # Assert
         self.assertEqual(actual_area, expected_area)
 
-    def test_perimeterr(self):
+    def test_perimeter(self):
         # Arrange
         radius = 5
         expected_perimeter = 31.41592653589793
