@@ -1,5 +1,3 @@
-# test_calculate.py
-
 import unittest
 from calculate import calc
 import circle
