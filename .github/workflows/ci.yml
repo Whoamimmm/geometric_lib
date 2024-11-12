@@ -27,7 +27,7 @@ jobs:
         run: |
           echo "Current directory structure:"
           ls -R  # Выводит все файлы и папки рекурсивно для проверки расположения
-
+          
       - name: Output personal information
         run: |
           echo "ФИО: $FULL_NAME"
@@ -41,7 +41,8 @@ jobs:
 
       - name: Run tests
         run: |
-          python -m unittest discover -s geometric_lib/unit_tests -p "*.py"  # Используем полный путь
+          # Указываем рабочую директорию и запускаем тесты
+          python -m unittest discover -s $(pwd)/geometric_lib/unit_tests -p "*.py"
 
       - name: Check code style
         run: |
