@@ -40,10 +40,20 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Run tests
+      - name: Ensure __init__.py in unit_tests
         run: |
-          # Запуск тестов, используя правильный путь
-          python -m unittest discover -s geometric_lib/unit_tests -p "*.py"  # Путь от текущей рабочей директории
+          if [ ! -f "geometric_lib/unit_tests/__init__.py" ]; then
+            touch geometric_lib/unit_tests/__init__.py
+          fi
+          
+      - name: Set working directory for testing
+        run: |
+          cd geometric_lib  # Устанавливаем правильную рабочую директорию
+
+      - name: Run tests (discover all test files automatically)
+        run: |
+          # Используем unittest discover с параметрами для поиска всех тестов
+          python -m unittest discover -s unit_tests -p "test_*.py"  # Автоматический поиск всех файлов с тестами, начинающихся с "test_"
 
       - name: Check code style
         run: |
