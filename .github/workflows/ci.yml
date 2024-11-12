@@ -23,6 +23,11 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
 
+      - name: Show directory structure for debugging
+        run: |
+          echo "Current directory structure:"
+          ls -R  # Выводит все файлы и папки рекурсивно для проверки расположения
+
       - name: Output personal information
         run: |
           echo "ФИО: $FULL_NAME"
@@ -36,8 +41,7 @@ jobs:
 
       - name: Run tests
         run: |
-          cd geometric_lib
-          python -m unittest discover unit_tests
+          python -m unittest discover -s geometric_lib/unit_tests -p "*.py"  # Используем полный путь
 
       - name: Check code style
         run: |
