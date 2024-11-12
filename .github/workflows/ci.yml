@@ -40,9 +40,9 @@ jobs:
           python-version: '3.13'
 
       - name: Run tests
+        working-directory: geometric_lib  # Задаём рабочую директорию
         run: |
-          # Указываем рабочую директорию и запускаем тесты
-          python -m unittest discover -s $(pwd)/geometric_lib/unit_tests -p "*.py"
+          python -m unittest discover -s unit_tests -p "*.py"
 
       - name: Check code style
         run: |
