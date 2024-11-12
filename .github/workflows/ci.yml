@@ -28,7 +28,9 @@ jobs:
 
       - name: Run tests
         run: |
-            python -m unittest discover geometric_lib/unit_tests
+            cd geometric_lib
+            python -m unittest discover unit_tests
+
 
       - name: Set up Python 3.13
         uses: actions/setup-python@v4
