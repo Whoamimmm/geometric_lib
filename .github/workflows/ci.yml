@@ -40,16 +40,10 @@ jobs:
         with:
           python-version: '3.13'
 
-      
-          
-      - name: Set working directory for testing
-        run: |
-          cd geometric_lib  # Устанавливаем правильную рабочую директорию
-
       - name: Run tests
         run: |
           # Запуск тестов, используя правильный путь
-          python -m unittest discover -s unit_tests -p "*.py"  # Путь от текущей рабочей директории
+          python -m unittest discover -s geometric_lib/unit_tests -p "*.py"  # Путь от текущей рабочей директории
 
       - name: Check code style
         run: |
