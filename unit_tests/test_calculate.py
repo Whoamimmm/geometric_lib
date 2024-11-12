@@ -60,7 +60,8 @@ class TestCalc(unittest.TestCase):
 
         self.assertEqual(
             str(context.exception),
-            "Invalid figure: triangle. Available figures are: ['circle', 'square']"
+            "Invalid figure: triangle. Available figures are: "
+            "['circle', 'square']"
         )
 
     def test_invalid_function(self):
@@ -73,7 +74,8 @@ class TestCalc(unittest.TestCase):
 
         self.assertEqual(
             str(context.exception),
-            "Invalid function: volume. Available functions are: ['perimeter', 'area']"
+            "Invalid function: volume. Available functions are: "
+            "['perimeter', 'area']"
         )
 
     def test_circle_negative_radius(self):
