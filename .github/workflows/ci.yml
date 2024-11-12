@@ -10,6 +10,7 @@ on:
       - main
       - release
       - develop
+      - feat/tests  # Указание, что workflow будет запускаться с ветки feat/tests
 
 jobs:
   build:
@@ -26,7 +27,7 @@ jobs:
       - name: Show directory structure for debugging
         run: |
           echo "Current directory structure after checkout:"
-          ls -R
+          ls -R  # Выводим структуру каталогов для отладки
 
       - name: Output personal information
         run: |
@@ -39,9 +40,16 @@ jobs:
         with:
           python-version: '3.13'
 
+      
+          
+      - name: Set working directory for testing
+        run: |
+          cd geometric_lib  # Устанавливаем правильную рабочую директорию
+
       - name: Run tests
         run: |
-          python -m unittest discover -s geometric_lib/unit_tests -p "*.py"  # Используем относительный путь к unit_tests
+          # Запуск тестов, используя правильный путь
+          python -m unittest discover -s unit_tests -p "*.py"  # Путь от текущей рабочей директории
 
       - name: Check code style
         run: |
