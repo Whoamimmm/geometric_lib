@@ -16,7 +16,7 @@ def calc(fig, func, size):
         )
 
     if any(s < 0 for s in size):
-        raise ValueError("Negative values are not allowed for figure dimensions.")
+        raise ValueError("Can't use negative  valuesfor figure dimensions.")
 
     if fig == 'circle':
         if func == 'perimeter':
@@ -36,7 +36,8 @@ try:
     dimensions = [5]
     result = calc(figure, function, dimensions)
     print(
-        f"The {function} of the {figure} with dimensions {dimensions} is: {result}"
+        f"The {function} of the {figure} with dimensions {dimensions} "
+        f"is: {result}"
     )
 
     figure = 'square'
@@ -44,7 +45,8 @@ try:
     dimensions = [4]
     result = calc(figure, function, dimensions)
     print(
-        f"The {function} of the {figure} with dimensions {dimensions} is: {result}"
+        f"The {function} of the {figure} with dimensions {dimensions} "
+        f"is: {result}"
     )
 
 except ValueError as e:

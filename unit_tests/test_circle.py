@@ -27,6 +27,5 @@ class TestCircle(unittest.TestCase):
         self.assertEqual(actual_perimeter, expected_perimeter)
 
 
-if __name__ == '__main__':  # Исправлено с name на __name__
-    unittest.main()
-
+if __name__ == '__main__':  
+    unittest.main() 
