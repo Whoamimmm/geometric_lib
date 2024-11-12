@@ -20,27 +20,26 @@ jobs:
       GROUP_NUMBER: "М3115"
 
     steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
       - name: Output personal information
         run: |
           echo "ФИО: $FULL_NAME"
           echo "Номер группы: $GROUP_NUMBER"
           echo "GitHub Nickname: $GITHUB_ACTOR"
 
-      - name: Run tests
-        run: |
-            cd geometric_lib
-            python -m unittest discover unit_tests
-
-
       - name: Set up Python 3.13
         uses: actions/setup-python@v4
         with:
           python-version: '3.13'
 
-    
+      - name: Run tests
+        run: |
+          cd geometric_lib
+          python -m unittest discover unit_tests
 
       - name: Check code style
         run: |
-          pip install flake8  
-          flake8 . || (echo "Code style issues found. Attempting to auto-fix..." && autopep8 --in-place --aggressive --aggressive .)
-
+          pip install flake8 autopep8
+          flake8 geometric_lib || (echo "Code style issues found. Attempting to auto-fix..." && autopep8 --in-place --aggressive --aggressive geometric_lib)
