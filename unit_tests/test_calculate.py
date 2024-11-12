@@ -60,8 +60,7 @@ class TestCalc(unittest.TestCase):
 
         self.assertEqual(
             str(context.exception),
-            "Invalid figure: triangle. Available figures are: "
-            "['circle', 'square']"
+            "Invalid figure: triangle. Available figures are: ['circle', 'square']"
         )
 
     def test_invalid_function(self):
@@ -74,8 +73,7 @@ class TestCalc(unittest.TestCase):
 
         self.assertEqual(
             str(context.exception),
-            "Invalid function: volume. Available functions are: "
-            "['perimeter', 'area']"
+            "Invalid function: volume. Available functions are: ['perimeter', 'area']"
         )
 
     def test_circle_negative_radius(self):
@@ -88,7 +86,7 @@ class TestCalc(unittest.TestCase):
 
         self.assertEqual(
             str(context.exception),
-            "Negative values are not allowed for figure dimensions."
+            "Can't use negative values for figure dimensions."
         )
 
     def test_square_negative_side(self):
@@ -101,11 +99,9 @@ class TestCalc(unittest.TestCase):
 
         self.assertEqual(
             str(context.exception),
-            "Negative values are not allowed for figure dimensions."
+            "Can't use negative values for figure dimensions."
         )
 
 
 if __name__ == '__main__':
     unittest.main()
-
-

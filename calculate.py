@@ -16,7 +16,7 @@ def calc(fig, func, size):
         )
 
     if any(s < 0 for s in size):
-        raise ValueError("Can't use negative  valuesfor figure dimensions.")
+        raise ValueError("Can't use negative values for figure dimensions.")
 
     if fig == 'circle':
         if func == 'perimeter':
