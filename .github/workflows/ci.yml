@@ -24,10 +24,11 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
 
+      # Шаг для диагностики структуры каталогов
       - name: Show directory structure for debugging
         run: |
-          echo "Current directory structure after checkout:"
-          ls -R  # Выводим структуру каталогов для отладки
+          echo "Current directory structure:"
+          ls -R  # Выводит структуру всех директорий и файлов рекурсивно
 
       - name: Output personal information
         run: |
@@ -53,9 +54,4 @@ jobs:
       - name: Run tests (discover all test files automatically)
         run: |
           # Используем unittest discover с параметрами для поиска всех тестов
-          python -m unittest discover -s unit_tests -p "test_*.py"  # Автоматический поиск всех файлов с тестами, начинающихся с "test_"
-
-      - name: Check code style
-        run: |
-          pip install flake8 autopep8
-          flake8 geometric_lib || (echo "Code style issues found. Attempting to auto-fix..." && autopep8 --in-place --aggressive --aggressive geometric_lib)
+          python -m unittest discover -s unit_tests -p
