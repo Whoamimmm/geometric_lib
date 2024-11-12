@@ -6,7 +6,7 @@ class TestCircle(unittest.TestCase):
 
     def test_area(self):
         # Arrange
-        radius = 5  # Исправлено с raduis на radius
+        radius = 5
         expected_area = 78.53981633974483
 
         # Act
