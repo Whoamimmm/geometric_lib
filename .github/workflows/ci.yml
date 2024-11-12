@@ -25,9 +25,9 @@ jobs:
 
       - name: Show directory structure for debugging
         run: |
-          echo "Current directory structure:"
-          ls -R  # Выводит все файлы и папки рекурсивно для проверки расположения
-          
+          echo "Current directory structure after checkout:"
+          ls -R
+
       - name: Output personal information
         run: |
           echo "ФИО: $FULL_NAME"
@@ -40,9 +40,8 @@ jobs:
           python-version: '3.13'
 
       - name: Run tests
-        working-directory: geometric_lib  # Задаём рабочую директорию
         run: |
-          python -m unittest discover -s unit_tests -p "*.py"
+          python -m unittest discover -s geometric_lib/unit_tests -p "*.py"  # Используем относительный путь к unit_tests
 
       - name: Check code style
         run: |
