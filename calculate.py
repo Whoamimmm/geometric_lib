@@ -4,11 +4,16 @@ import square
 figs = ['circle', 'square']
 funcs = ['perimeter', 'area']
 
+
 def calc(fig, func, size):
     if fig not in figs:
-        raise ValueError(f"Invalid figure: {fig}. Available figures are: {figs}")
+        raise ValueError(
+            f"Invalid figure: {fig}. Available figures are: {figs}"
+        )
     if func not in funcs:
-        raise ValueError(f"Invalid function: {func}. Available functions are: {funcs}")
+        raise ValueError(
+            f"Invalid function: {func}. Available functions are: {funcs}"
+        )
 
     if any(s < 0 for s in size):
         raise ValueError("Negative values are not allowed for figure dimensions.")
@@ -24,18 +29,23 @@ def calc(fig, func, size):
         elif func == 'area':
             return square.area(size[0])
 
+
 try:
     figure = 'circle'
     function = 'area'
     dimensions = [5]
     result = calc(figure, function, dimensions)
-    print(f"The {function} of the {figure} with dimensions {dimensions} is: {result}")
+    print(
+        f"The {function} of the {figure} with dimensions {dimensions} is: {result}"
+    )
 
     figure = 'square'
     function = 'perimeter'
     dimensions = [4]
     result = calc(figure, function, dimensions)
-    print(f"The {function} of the {figure} with dimensions {dimensions} is: {result}")
+    print(
+        f"The {function} of the {figure} with dimensions {dimensions} is: {result}"
+    )
 
 except ValueError as e:
     print(e)

@@ -1,5 +1,6 @@
 import unittest
-from square import area, perimeter 
+from square import area, perimeter
+
 
 class TestSquare(unittest.TestCase):
 
@@ -24,6 +25,7 @@ class TestSquare(unittest.TestCase):
 
         # Assert
         self.assertEqual(actual_perimeter, expected_perimeter)
+
 
 if __name__ == '__main__':
     unittest.main()

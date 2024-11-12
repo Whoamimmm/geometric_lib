@@ -1,15 +1,16 @@
 import unittest
 from circle import area, perimeter
 
+
 class TestCircle(unittest.TestCase):
 
     def test_area(self):
         # Arrange
-        raduis = 5
+        radius = 5  # Исправлено с raduis на radius
         expected_area = 78.53981633974483
 
         # Act
-        actual_area = area(raduis)
+        actual_area = area(radius)
 
         # Assert
         self.assertEqual(actual_area, expected_area)
@@ -24,5 +25,8 @@ class TestCircle(unittest.TestCase):
 
         # Assert
         self.assertEqual(actual_perimeter, expected_perimeter)
-if __name__ == '__main__':
+
+
+if __name__ == '__main__':  # Исправлено с name на __name__
     unittest.main()
+

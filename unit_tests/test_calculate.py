@@ -3,6 +3,7 @@ from calculate import calc
 import circle
 import square
 
+
 class TestCalc(unittest.TestCase):
 
     def test_circle_area(self):
@@ -52,12 +53,15 @@ class TestCalc(unittest.TestCase):
     def test_invalid_figure(self):
         # Arrange
         invalid_figure = 'triangle'
-        
+
         # Act & Assert
         with self.assertRaises(ValueError) as context:
             calc(invalid_figure, 'area', [3])
-        
-        self.assertEqual(str(context.exception), "Invalid figure: triangle. Available figures are: ['circle', 'square']")
+
+        self.assertEqual(
+            str(context.exception),
+            "Invalid figure: triangle. Available figures are: ['circle', 'square']"
+        )
 
     def test_invalid_function(self):
         # Arrange
@@ -66,28 +70,39 @@ class TestCalc(unittest.TestCase):
         # Act & Assert
         with self.assertRaises(ValueError) as context:
             calc('circle', invalid_function, [5])
-        
-        self.assertEqual(str(context.exception), "Invalid function: volume. Available functions are: ['perimeter', 'area']")
+
+        self.assertEqual(
+            str(context.exception),
+            "Invalid function: volume. Available functions are: ['perimeter', 'area']"
+        )
 
     def test_circle_negative_radius(self):
         # Arrange
         negative_radius = -5
-        
+
         # Act & Assert
         with self.assertRaises(ValueError) as context:
             calc('circle', 'area', [negative_radius])
-        
-        self.assertEqual(str(context.exception), "Negative values are not allowed for figure dimensions.")
+
+        self.assertEqual(
+            str(context.exception),
+            "Negative values are not allowed for figure dimensions."
+        )
 
     def test_square_negative_side(self):
         # Arrange
         negative_side = -4
-        
+
         # Act & Assert
         with self.assertRaises(ValueError) as context:
             calc('square', 'area', [negative_side])
-        
-        self.assertEqual(str(context.exception), "Negative values are not allowed for figure dimensions.")
+
+        self.assertEqual(
+            str(context.exception),
+            "Negative values are not allowed for figure dimensions."
+        )
+
 
 if __name__ == '__main__':
     unittest.main()
+

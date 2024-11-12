@@ -1,7 +1,8 @@
 import unittest
-from triangle import area, perimeter 
+from triangle import area, perimeter
 
-class TestSquare(unittest.TestCase):
+
+class TestTriangle(unittest.TestCase):
 
     def test_area(self):
         # Arrange
@@ -24,10 +25,11 @@ class TestSquare(unittest.TestCase):
         expected_perimeter = 15
 
         # Act
-        actual_perimeter = perimeter(side1, side2,side3)
+        actual_perimeter = perimeter(side1, side2, side3)
 
         # Assert
         self.assertEqual(actual_perimeter, expected_perimeter)
+
 
 if __name__ == '__main__':
     unittest.main()
